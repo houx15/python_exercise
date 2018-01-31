@@ -99,7 +99,7 @@ class GameField(object):
             draw_hor_separator.counter += 1
 
         def draw_row(row):
-            cast(''.join('|{: ^5} '.format(num) if num > 0 else '|' for num in row) + '|')
+            cast(''.join('|{: ^5} '.format(num) if num > 0 else '|    ' for num in row) + '|')
 
         screen.clear()
         cast('SCORE: ' + str(self.score))
@@ -156,7 +156,7 @@ def main(stdscr):
         responses = defaultdict(lambda: state)
         responses['Restart'] = 'Init'
         responses['Exit'] = 'Exit'
-        return responses[actions]
+        return responses[action]
 
     def game():
         game_field.draw(stdscr)
